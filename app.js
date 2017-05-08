@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-
+var anuncios = require('./routes/anuncios');
 var app = express();
 
 // view engine setup
