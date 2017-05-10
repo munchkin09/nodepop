@@ -1,6 +1,7 @@
 'use strict';
 
-require('../bin/install_db');
+require('../lib/connectionDb');
+
 const async = require('async');
 const mongoose = require('mongoose');
 
@@ -15,12 +16,12 @@ async.series({
         cb(null, 'OK');
       },
     crearUsuario: (cb) => {
-        cb(null, 'NO-OK');
+        cb('bu', 'NO-OK');
       },
   }, (err, results) => {
     if (err) {
       console.log(err);
-      process.exit(1);
+      // Aprocess.exit(1);
     }
     consolify(results);
     process.exit(0);
