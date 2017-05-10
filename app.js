@@ -11,6 +11,9 @@ var anuncios = require('./routes/api/v1/anuncios');
 
 var app = express();
 
+// Con este require hacemos que mongoose se conecte a nuesta db de manera básica
+require('./lib/connectionDb');
+
 // View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -24,8 +27,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/v1/usuarios', usuarios);
-app.use('/v1/anuncios', anuncios);
+app.use('/apiv1/usuarios', usuarios);
+app.use('/apiv1/anuncios', anuncios);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
