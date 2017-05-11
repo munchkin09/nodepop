@@ -8,9 +8,9 @@
         "tags": [ "lifestyle", "motor"]
     }, 
     {
-        "nombre": "iPhone 3GS", 
+        "nombre": "iPhone 5", 
         "venta": false,
-        "precio": 50.00,
+        "precio": 75.00,
         "foto": "iphone.png",
         "tags": [ "lifestyle", "mobile"]
     },
@@ -25,7 +25,7 @@
         "nombre": "Akira Tomo 1",
         "venta": true,
         "precio": 10.00,
-        "foto": "akira1.png",
+        "foto": "akira.jpg",
         "tags": ["lifestyle"]
     }]
 }
