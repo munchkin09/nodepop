@@ -27,8 +27,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/apiv1/usuarios', usuarios);
-app.use('/apiv1/anuncios', anuncios);
+app.use('/api/v1/usuarios', usuarios);
+app.use('/api/v1/anuncios', anuncios);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {

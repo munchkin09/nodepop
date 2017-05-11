@@ -1,11 +1,15 @@
 'use strict';
 
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 
-var anuncioSchema = mongoose.Schema({
+let anuncioSchema = mongoose.Schema({
     nombre: String,
     venta: Boolean,
     precio: Number,
     foto: String,
     tags: [String],
+    creado: { type: Date, default: Date.now},
   });
+
+mongoose.model('Anuncio', anuncioSchema);
+

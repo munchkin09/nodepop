@@ -11,3 +11,13 @@ Express 4.15.2
 MongoDb 3.4.4
 
 ## Instalación
+
+git clone https://github.com/munchkin09/nodepop.git
+
+npm install
+
+npm run install_db
+
+npm start
+
+## Referencia de API
