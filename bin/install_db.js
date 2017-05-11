@@ -29,7 +29,7 @@ mongoose.connect('mongodb://localhost/nodepop',(err)=> {
     console.log(err);
     return;
   }
-  Anuncio.remove({}, (err, algo) => {
+  Anuncio.remove({}, (err, data) => {
     if (err) {
       console.log(err);
       return;

@@ -5,6 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+require('./models/Anuncio');
+require('./models/Usuario');
+
 var index = require('./routes/index');
 var usuarios = require('./routes/api/v1/usuarios');
 var anuncios = require('./routes/api/v1/anuncios');
@@ -25,6 +28,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use((req, res, next) => {
+  // Middleware para controlar si la petición viene autentificada o no.
+});
 
 app.use('/', index);
 app.use('/api/v1/usuarios', usuarios);
