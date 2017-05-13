@@ -11,6 +11,7 @@ require('./models/Usuario');
 var index = require('./routes/index');
 var usuarios = require('./routes/api/v1/usuarios');
 var anuncios = require('./routes/api/v1/anuncios');
+var customError = require('./lib/CustomError');
 
 var app = express();
 
@@ -29,13 +30,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use((req, res, next) => {
-  // Middleware para controlar si la petición viene autentificada o no.
-});
-
 app.use('/', index);
+app.use('/api/v2/', require('./routes/api/v2/auth'));
+app.use('/api/v2/anuncios', require('./routes/api/v2/anuncios'));
 app.use('/api/v1/usuarios', usuarios);
 app.use('/api/v1/anuncios', anuncios);
+
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -44,15 +44,31 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+// Gestor de errores propio
+// Aapp.use(customError);
+
+
 // Error handler
 app.use(function(err, req, res, next) {
+
+  res.status(err.status || 500);
+  console.log(req.originalUrl);
+  if (isAPI(req)) {
+    res.json({ success: false, error: err.message});
+    return;
+  }
+
   // Set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // Render the error page
-  res.status(err.status || 500);
   res.render('error');
 });
 
 module.exports = app;
+
+
+function isAPI(req) {
+  return req.originalUrl.indexOf('/api/v') === 0;
+}
