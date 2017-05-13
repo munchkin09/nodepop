@@ -13,8 +13,7 @@ router.use((req, res, next) => {
 router.get('/', function(req, res, next) {
   Anuncio.find(filtros).exec((err, list) => {
     if (err) {
-      next(err);
-      return;
+      return next(err);
     }
     res.json({ ok: true, list: list})
   });

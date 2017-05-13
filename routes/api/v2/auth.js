@@ -10,20 +10,17 @@ const jwt = require('jsonwebtoken');
 const config = require('../../../lib/config');
 
 router.use(function(req, res, next) {
-    console.log('paso middleware auth');
     if (req.originalUrl !== '/api/v2/authenticate') {
       const token = req.query.token;
       jwt.verify(token, config.jwt.secret, (err, decoded) => {
           if (err) {
-            next(err, req, res);
-            return;
+            return next(err, req, res);
+
           }
-          next();
-          return;
+          return next();
         });
     } else {
-      next();
-      return;
+      return next();
     }
   });
 

@@ -8,8 +8,7 @@ const Usuario = mongoose.model('Usuario');
 router.get('/', function(req, res, next) {
   Usuario.find({}, 'nombre email', (err, data) => {
     if (err) {
-      next(err,null);
-      return;
+      return next(err,null);
     }
     res.json({success: true, data: data });
   });

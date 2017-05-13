@@ -8,8 +8,7 @@ var Anuncio = mongoose.model('Anuncio');
 router.get('/', function(req, res, next) {
   Anuncio.find().exec((err, list) => {
     if (err) {
-      next(err);
-      return;
+      return next(err);
     }
     res.json({ ok: true, list: list})
   });
