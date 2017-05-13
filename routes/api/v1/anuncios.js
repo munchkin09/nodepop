@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 
 var Anuncio = mongoose.model('Anuncio');
 
-/* GET home page. */
+/* GET de el listado completo de anuncios, sin filtro. */
 router.get('/', function(req, res, next) {
   Anuncio.find().exec((err, list) => {
     if (err) {
