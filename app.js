@@ -38,6 +38,7 @@ app.use('/api/v2/anuncios', require('./routes/api/v2/anuncios'));
 
 
 
+
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -45,8 +46,9 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+
 // Gestor de errores propio
-// Aapp.use(customError);
+app.use(customError);
 
 
 // Error handler

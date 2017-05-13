@@ -11,7 +11,9 @@ router.use((req, res, next) => {
 
 /* GET de el listado completo de anuncios, CON filtro. */
 router.get('/', function(req, res, next) {
+  const filtros = {};
   Anuncio.find(filtros).exec((err, list) => {
+    err = new Error('Probando cosas');
     if (err) {
       return next(err);
     }

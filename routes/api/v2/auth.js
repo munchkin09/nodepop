@@ -1,13 +1,13 @@
 'use strict';
+
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+const config = require('../../../lib/config');
 
 var Usuario = mongoose.model('Usuario');
 
-const jwt = require('jsonwebtoken');
-
-const config = require('../../../lib/config');
 
 router.use(function(req, res, next) {
     if (req.originalUrl !== '/api/v2/authenticate') {
