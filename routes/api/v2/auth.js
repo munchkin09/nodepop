@@ -9,18 +9,39 @@ const jwt = require('jsonwebtoken');
 
 const config = require('../../../lib/config');
 
+router.use(function(req, res, next) {
+    console.log('paso middleware auth');
+    if (req.originalUrl !== '/api/v2/authenticate') {
+      const token = req.query.token;
+      jwt.verify(token, config.jwt.secret, (err, decoded) => {
+          if (err) {
+            next(err, req, res);
+            return;
+          }
+          next();
+          return;
+        });
+    } else {
+      next();
+      return;
+    }
+  });
+
 router.post('/authenticate', function(req, res, next) {
     const loginData = { email: req.body.email, clave: req.body.clave }
     Usuario.validarUsuarioYPass(loginData, (err, usuario) => {
-        console.log(err);
-        console.log(usuario);
+        if (err) {
+          res.cookie('jwt', '');
+          res.status(401);
+          res.json({success: false, data: {} });
+          return;
+        }
         var token = jwt.sign(usuario,config.jwt.secret, {
             expiresIn: config.jwt.expiresInMinutes,
           });
-        console.log(token);
-        res.json(token);
+        res.cookie('jwt',token);
+        res.json({success: true, data: token });
       });
-    
   });
 
 module.exports = router;
