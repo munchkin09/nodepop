@@ -18,6 +18,8 @@ npm install
 
 npm run install_db
 
+Completar y renombrar el archivo config.SAMPLE.js a config.js
+
 npm start
 
 ## Referencia de API
