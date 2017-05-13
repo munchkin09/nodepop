@@ -31,10 +31,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/api/v2/', require('./routes/api/v2/auth'));
-app.use('/api/v2/anuncios', require('./routes/api/v2/anuncios'));
 app.use('/api/v1/usuarios', usuarios);
 app.use('/api/v1/anuncios', anuncios);
+app.use('/api/v2/', require('./routes/api/v2/auth'));
+app.use('/api/v2/anuncios', require('./routes/api/v2/anuncios'));
+
 
 
 // Catch 404 and forward to error handler
