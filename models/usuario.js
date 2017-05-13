@@ -20,10 +20,15 @@ usuarioSchema.statics.insertarUsuario = function(data, cb) {
 }
 
 usuarioSchema.statics.validarUsuarioYPass = function(data, cb) {
-  const login = { email: data.email, clave: sha(data.clave) }
+  const login = { email: data.email, clave: sha(data.clave) };
   Usuario.findOne(login, (err, data) => {
     if (err) {
       cb(err, null);
+      return;
+    }
+    if (data === null) {
+      cb(new Error('Invalid login credentials'), {});
+      return;
     }
     cb(null, data);
   });
