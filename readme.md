@@ -12,16 +12,21 @@ MongoDb 3.4.4
 
 ## Instalación
 
+```
 git clone https://github.com/munchkin09/nodepop.git
 
 npm install
 
 npm run install_db
 
+```
+
 Completar y renombrar el archivo config.SAMPLE.js a config.js
 
+```
 npm start
 
+```
 ## Referencia de API
 
 ### API v1
