@@ -31,19 +31,33 @@ npm start
 
 ### API v1
 
+```
 GET localhost:3000/api/v1/anuncios (Listado de anuncios sin filtros)
+```
 
+```
 GET localhost:3000/api/v1/usuarios (Listado de usuarios)
-
+```
 ### API v2
 
 Usa autentificación por JsonWebTokens
 
+```
 POST localhost:3000/api/v2/authenticate (x-www-formencoded email: EMAIL clave: CLAVE)
+```
 
 Devuelve un JSON con success TRUE y el webtoken para este usuario, si el login es correcto.
 
 Devuelve un JSON con success FALSE y un objeto vacio, si el login es incorrecto
 
-GET localhost:3000/api/v2/anuncios?token=(JsonWebToken)
+```
+POST localhost:3000/api/v2/usuarios (x-www-formencoded nombre: NOMBRE email: EMAIL clave: CLAVE)
+```
 
+Devuelve un JSON con success TRUE y el usuario creado en la BBDD si todo ha ido bien
+
+Devuelve un JSON con success FALSE y un objeto vacio si algo ha ido mal en la inserción
+
+```
+GET localhost:3000/api/v2/anuncios?token=(JsonWebToken)
+```
