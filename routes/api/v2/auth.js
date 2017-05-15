@@ -10,16 +10,20 @@ var Usuario = mongoose.model('Usuario');
 
 
 router.use(function(req, res, next) {
-    if (req.originalUrl !== '/api/v2/authenticate') {
+    if (req.originalUrl === '/api/v2/usuarios') {
+      console.log('hola holita');
+      return next();
+    } else if (req.originalUrl === '/api/v2/authenticate') {
+      return next();
+    } else {
+      console.log('buenas4444444!');
       const token = req.query.token || req.headers['x-access-token'];
       jwt.verify(token, config.jwt.secret, (err, decoded) => {
           if (err) {
-            return next(err, req, res);
+            return next(err);
           }
           return next();
         });
-    } else {
-      return next();
     }
   });
 
@@ -27,8 +31,8 @@ router.post('/authenticate', function(req, res, next) {
     const loginData = { email: req.body.email, clave: req.body.clave }
     Usuario.validarUsuarioYPass(loginData, (err, usuario) => {
         if (err) {
-          res.status(401);
-          res.json({success: false, data: {} });
+          res.status(404);
+          res.json({success: false, data: { prueba: 'ooeoe' } });
           return;
         }
         var token = jwt.sign(usuario,config.jwt.secret, {

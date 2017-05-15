@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     if (err) {
       return next(err);
     }
-    res.json({ ok: true, list: list})
+    res.json({ success: true, data: list})
   });
 });
 

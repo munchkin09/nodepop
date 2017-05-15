@@ -35,6 +35,7 @@ app.use('/api/v1/usuarios', usuarios);
 app.use('/api/v1/anuncios', anuncios);
 app.use('/api/v2/', require('./routes/api/v2/auth'));
 app.use('/api/v2/anuncios', require('./routes/api/v2/anuncios'));
+app.use('/api/v2/usuarios', require('./routes/api/v2/usuarios'));
 
 
 
@@ -53,9 +54,7 @@ app.use(customError);
 
 // Error handler
 app.use(function(err, req, res, next) {
-
   res.status(err.status || 500);
-  console.log(req.originalUrl);
   if (isAPI(req)) {
     res.json({ success: false, error: err.message});
     return;
