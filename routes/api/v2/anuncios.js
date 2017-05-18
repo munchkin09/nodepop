@@ -4,19 +4,17 @@ var mongoose = require('mongoose');
 
 var Anuncio = mongoose.model('Anuncio');
 
-router.use((req, res, next) => {
-  // Middleware para controlar si la petición viene autentificada o no.
-  next();
-});
-
 /* GET de el listado completo de anuncios, CON filtro. */
 router.get('/', function(req, res, next) {
-  const filtros = {};
-  Anuncio.find(filtros).exec((err, list) => {
+  Anuncio.findWithFilters(req.query, (err, data) => {
     if (err) {
-      return next(err);
+      console.log(err);
+      return next();
     }
-    res.json({ ok: true, list: list})
+    if (data.length === 0) {
+      return next(new Error('INVALID_CRITERIA'));
+    }
+    res.json({ success: true, data: data});
   });
 });
 
