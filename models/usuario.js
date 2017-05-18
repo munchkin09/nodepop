@@ -5,7 +5,7 @@ const sha = require('sha256');
 
 const usuarioSchema = mongoose.Schema({
     nombre: String,
-    email: String,
+    email: { type: String, unique: true },
     clave: String,
   });
 
@@ -20,13 +20,14 @@ usuarioSchema.statics.insertarUsuario = function(data, cb) {
 }
 
 usuarioSchema.statics.validarUsuarioYPass = function(data, cb) {
-  const login = { email: data.email, clave: sha(data.clave) };
+  const login = { email: data.email};
+  const pass = sha(data.clave);
   Usuario.findOne(login, (err, data) => {
     if (err) {
       return cb(err, null);
     }
-    if (data === null) {
-      return cb(new Error('Invalid login credentials'), {});
+    if (data === null || data.clave !== pass) {
+      return cb(new Error('INVALID_LOGIN'), {});
     }
     cb(null, data);
   });
