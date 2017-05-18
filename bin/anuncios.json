@@ -27,5 +27,47 @@
         "precio": 10.00,
         "foto": "akira.jpg",
         "tags": ["lifestyle"]
+    },
+    {
+        "nombre": "Akira Tomo 2",
+        "venta": true,
+        "precio": 14.00,
+        "foto": "akira.jpg",
+        "tags": ["lifestyle"]
+    },
+    {
+        "nombre": "Akira Tomo 1",
+        "venta": true,
+        "precio": 19.00,
+        "foto": "akira.jpg",
+        "tags": ["lifestyle"]
+    },
+    {
+        "nombre": "Akira Tomo 1",
+        "venta": true,
+        "precio": 10.00,
+        "foto": "akira.jpg",
+        "tags": ["lifestyle"]
+    },
+    {
+        "nombre": "Akira Tomo 3",
+        "venta": true,
+        "precio": 11.00,
+        "foto": "akira.jpg",
+        "tags": ["lifestyle"]
+    },
+    {
+        "nombre": "Akira Tomo 4",
+        "venta": true,
+        "precio": 14.00,
+        "foto": "akira.jpg",
+        "tags": ["lifestyle"]
+    },
+    {
+        "nombre": "Akira Tomo 2",
+        "venta": true,
+        "precio": 16.00,
+        "foto": "akira.jpg",
+        "tags": ["lifestyle"]
     }]
 }
