@@ -18,4 +18,13 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/tags', function(req, res, next) {
+  Anuncio.distinct('tags',(err, data) => {
+    if (err) {
+      return next(err);
+    }
+    res.json({success: true, data: data});
+  });
+});
+
 module.exports = router;
