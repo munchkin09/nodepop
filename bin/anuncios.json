@@ -4,70 +4,70 @@
         "nombre": "Bicicleta", 
         "venta": true,
         "precio": 230.15,
-        "foto": "bici.jpg",
+        "foto": "localhost:3000/images/bici.jpg",
         "tags": [ "lifestyle", "motor"]
     }, 
     {
         "nombre": "iPhone 5", 
         "venta": false,
         "precio": 75.00,
-        "foto": "iphone.png",
+        "foto": "localhost:3000/images/iphone.png",
         "tags": [ "lifestyle", "mobile"]
     },
     {
         "nombre": "Macbook air",
         "venta": false,
         "precio": 800.00,
-        "foto": "air.png",
+        "foto": "localhost:3000/images/air.png",
         "tags": ["lifestyle","mobile"]
     },
     {
         "nombre": "Akira Tomo 1",
         "venta": true,
         "precio": 10.00,
-        "foto": "akira.jpg",
+        "foto": "localhost:3000/images/akira.jpg",
         "tags": ["lifestyle"]
     },
     {
         "nombre": "Akira Tomo 2",
         "venta": true,
         "precio": 14.00,
-        "foto": "akira.jpg",
+        "foto": "localhost:3000/images/akira.jpg",
         "tags": ["lifestyle"]
     },
     {
         "nombre": "Akira Tomo 1",
         "venta": true,
         "precio": 19.00,
-        "foto": "akira.jpg",
+        "foto": "localhost:3000/images/akira.jpg",
         "tags": ["lifestyle"]
     },
     {
         "nombre": "Akira Tomo 1",
         "venta": true,
         "precio": 10.00,
-        "foto": "akira.jpg",
+        "foto": "localhost:3000/images/akira.jpg",
         "tags": ["lifestyle"]
     },
     {
         "nombre": "Akira Tomo 3",
         "venta": true,
         "precio": 11.00,
-        "foto": "akira.jpg",
+        "foto": "localhost:3000/images/akira.jpg",
         "tags": ["lifestyle"]
     },
     {
         "nombre": "Akira Tomo 4",
         "venta": true,
         "precio": 14.00,
-        "foto": "akira.jpg",
+        "foto": "localhost:3000/images/akira.jpg",
         "tags": ["lifestyle"]
     },
     {
         "nombre": "Akira Tomo 2",
         "venta": true,
         "precio": 16.00,
-        "foto": "akira.jpg",
+        "foto": "localhost:3000/images/akira.jpg",
         "tags": ["lifestyle"]
     }]
 }
